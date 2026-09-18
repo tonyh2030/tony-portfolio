@@ -13,7 +13,7 @@ export default function ProfileCard({
   return (
     <div className="rounded-2xl border border-border bg-surface p-6">
       <div className="flex items-center gap-2">
-        <span className="h-2 w-2 rounded-full bg-orange" />
+        <span className="h-2 w-2 rounded-full bg-orange-fill" />
         <p className="tracked text-xs font-semibold uppercase">{profile.brandName}</p>
       </div>
       <p className="mt-3 text-lg font-semibold leading-snug">{profile.title}</p>

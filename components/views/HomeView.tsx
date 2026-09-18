@@ -61,6 +61,18 @@ export default function HomeView({ locale }: { locale: Locale }) {
                 </div>
               ))}
             </div>
+
+            <div className="mt-10 border-t border-border pt-8">
+              <p className="tracked text-xs font-semibold uppercase text-muted">{dict.highlightsTitle}</p>
+              <ul className="mt-4 space-y-3">
+                {profile.summary.map((line) => (
+                  <li key={line} className="flex gap-3 text-[15px] leading-relaxed text-foreground/90">
+                    <span className="mt-1 text-orange">✓</span>
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="flex flex-col gap-6">
@@ -77,18 +89,6 @@ export default function HomeView({ locale }: { locale: Locale }) {
             <ProfileCard profile={profile} skills={skills} dict={dict} />
           </div>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-6 py-10">
-        <p className="tracked text-xs font-semibold uppercase text-muted">{dict.highlightsTitle}</p>
-        <ul className="mt-4 space-y-3">
-          {profile.summary.map((line) => (
-            <li key={line} className="flex gap-3 text-[15px] leading-relaxed text-foreground/90">
-              <span className="mt-1 text-orange">✓</span>
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <ApproachSection steps={approach} dict={dict} />

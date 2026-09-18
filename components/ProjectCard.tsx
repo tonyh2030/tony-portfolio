@@ -2,11 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CaseStudy } from "@/lib/types";
 
-const placeholderStyles = [
-  "from-sage/40 via-sage-soft to-background",
-  "from-orange/30 via-orange-soft to-background",
-  "from-primary/20 via-sage-soft to-background",
-];
+const placeholderStyles = ["bg-primary text-primary-foreground", "bg-orange-fill text-white"];
 
 export default function ProjectCard({
   project,
@@ -29,7 +25,7 @@ export default function ProjectCard({
       <div className="flex-1">
         <div className="flex items-center gap-3">
           <span className="text-sm text-muted">{number}</span>
-          <span className="h-1 w-1 rounded-full bg-orange" />
+          <span className="h-1 w-1 rounded-full bg-orange-fill" />
           <span className="tracked text-[11px] font-medium uppercase text-muted">{project.tags[0]}</span>
         </div>
         <h3 className="mt-3 text-xl font-semibold tracking-tight group-hover:text-orange sm:text-2xl">
@@ -48,21 +44,23 @@ export default function ProjectCard({
         </p>
       </div>
 
-      <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-xl border border-border sm:h-32 sm:w-56">
+      <div className="h-40 w-full shrink-0 overflow-hidden rounded-xl border border-border sm:h-32 sm:w-56">
         {thumb ? (
-          <Image
-            src={thumb.src}
-            alt={thumb.alt}
-            fill
-            className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
-            sizes="224px"
-          />
+          <div className="relative h-full w-full bg-white p-2">
+            <Image
+              src={thumb.src}
+              alt={thumb.alt}
+              fill
+              className="object-contain object-center transition-transform duration-300 group-hover:scale-105"
+              sizes="224px"
+            />
+          </div>
         ) : (
           <div
-            className={`flex h-full w-full flex-col justify-end bg-gradient-to-br p-3 ${placeholderStyles[index % placeholderStyles.length]}`}
+            className={`flex h-full w-full flex-col items-center justify-center gap-1 text-center ${placeholderStyles[index % placeholderStyles.length]}`}
           >
-            <p className="tracked text-[10px] uppercase text-foreground/70">{project.stats[0]?.value}</p>
-            <p className="text-[11px] text-foreground/60">{project.stats[0]?.label}</p>
+            <p className="text-3xl font-semibold tracking-tight">{project.stats[0]?.value}</p>
+            <p className="tracked max-w-[80%] text-[10px] uppercase opacity-80">{project.stats[0]?.label}</p>
           </div>
         )}
       </div>

@@ -10,7 +10,8 @@
   --primary-foreground: #f2f0e9;
   --sage: #90a693;
   --sage-soft: #e6eae0;
-  --orange: #d9713f;
+  --orange: #a24a20;
+  --orange-fill: #d9713f;
   --orange-soft: #f6e2d3;
 }
 
@@ -25,6 +26,7 @@
   --sage: #7fa189;
   --sage-soft: #253128;
   --orange: #e2905c;
+  --orange-fill: #d9713f;
   --orange-soft: #3a2a1e;
 }
 
@@ -40,6 +42,7 @@
     --sage: #7fa189;
     --sage-soft: #253128;
     --orange: #e2905c;
+    --orange-fill: #d9713f;
     --orange-soft: #3a2a1e;
   }
 }
@@ -55,6 +58,7 @@
   --color-sage: var(--sage);
   --color-sage-soft: var(--sage-soft);
   --color-orange: var(--orange);
+  --color-orange-fill: var(--orange-fill);
   --color-orange-soft: var(--orange-soft);
   --font-sans: var(--font-sans);
 }

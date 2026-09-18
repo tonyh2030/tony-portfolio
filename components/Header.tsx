@@ -37,7 +37,7 @@ export default function Header({
         <nav className="hidden items-center gap-7 text-sm text-muted lg:flex">
           <Link href={home} className="text-foreground">
             {dict.nav.home}
-            <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-orange align-middle" />
+            <span className="ml-1.5 inline-block h-1 w-1 rounded-full bg-orange-fill align-middle" />
           </Link>
           {nav.map((link) => (
             <a key={link.label} href={link.href} className="transition-colors hover:text-foreground">

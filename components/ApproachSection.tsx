@@ -6,7 +6,7 @@ const circleStyle: Record<string, string> = {
   "01": "bg-sage-soft text-primary border-sage",
   "02": "bg-sage-soft text-primary border-sage",
   "03": "bg-surface text-foreground border-border",
-  "04": "bg-orange text-white border-orange",
+  "04": "bg-orange-fill text-white border-orange-fill",
   "05": "bg-surface text-foreground border-border",
 };
 
