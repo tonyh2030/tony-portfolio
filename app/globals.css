@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafaf9;
+  --surface: #ffffff;
+  --foreground: #1c1c1a;
+  --muted: #6b6a66;
+  --border: #e6e4df;
+  --accent: #b5501f;
+  --accent-soft: #f3e6dd;
+}
+
+:root[data-theme="dark"] {
+  --background: #14130f;
+  --surface: #1c1b17;
+  --foreground: #f2f0ea;
+  --muted: #a5a297;
+  --border: #34322b;
+  --accent: #e08a4f;
+  --accent-soft: #3a291d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --background: #14130f;
+    --surface: #1c1b17;
+    --foreground: #f2f0ea;
+    --muted: #a5a297;
+    --border: #34322b;
+    --accent: #e08a4f;
+    --accent-soft: #3a291d;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-sans);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
