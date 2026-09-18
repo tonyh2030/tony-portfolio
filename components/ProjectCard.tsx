@@ -1,39 +1,71 @@
+import Image from "next/image";
 import Link from "next/link";
-import type { CaseStudy } from "@/lib/data";
+import type { CaseStudy } from "@/lib/types";
 
-export default function ProjectCard({ project }: { project: CaseStudy }) {
+const placeholderStyles = [
+  "from-sage/40 via-sage-soft to-background",
+  "from-orange/30 via-orange-soft to-background",
+  "from-primary/20 via-sage-soft to-background",
+];
+
+export default function ProjectCard({
+  project,
+  index,
+  locale,
+}: {
+  project: CaseStudy;
+  index: number;
+  locale: "ko" | "en";
+}) {
+  const href = locale === "ko" ? `/projects/${project.slug}` : `/en/projects/${project.slug}`;
+  const number = String(index + 1).padStart(2, "0");
+  const thumb = project.images[0];
+
   return (
     <Link
-      href={`/projects/${project.slug}`}
-      className="group flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-black/5"
+      href={href}
+      className="group flex flex-col gap-6 border-b border-border py-8 first:pt-0 last:border-b-0 sm:flex-row sm:items-center"
     >
-      <div>
-        <div className="flex flex-wrap gap-2">
+      <div className="flex-1">
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-muted">{number}</span>
+          <span className="h-1 w-1 rounded-full bg-orange" />
+          <span className="tracked text-[11px] font-medium uppercase text-muted">{project.tags[0]}</span>
+        </div>
+        <h3 className="mt-3 text-xl font-semibold tracking-tight group-hover:text-orange sm:text-2xl">
+          {project.title}
+        </h3>
+        <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted">{project.subtitle}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent"
-            >
+            <span key={tag} className="rounded-full border border-border px-3 py-1 text-xs text-foreground/80">
               {tag}
             </span>
           ))}
         </div>
-        <h3 className="mt-4 text-xl font-semibold tracking-tight group-hover:text-accent">
-          {project.title}
-        </h3>
-        <p className="mt-2 text-sm text-muted">{project.subtitle}</p>
+        <p className="mt-4 text-xs text-muted">
+          {project.company} · {project.period}
+        </p>
       </div>
-      <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 border-t border-border pt-4 text-sm">
-        {project.stats.slice(0, 2).map((stat) => (
-          <div key={stat.label}>
-            <p className="font-semibold text-accent">{stat.value}</p>
-            <p className="text-xs text-muted">{stat.label}</p>
+
+      <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-xl border border-border sm:h-32 sm:w-56">
+        {thumb ? (
+          <Image
+            src={thumb.src}
+            alt={thumb.alt}
+            fill
+            className="object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            sizes="224px"
+          />
+        ) : (
+          <div
+            className={`flex h-full w-full flex-col justify-end bg-gradient-to-br p-3 ${placeholderStyles[index % placeholderStyles.length]}`}
+          >
+            <p className="tracked text-[10px] uppercase text-foreground/70">{project.stats[0]?.value}</p>
+            <p className="text-[11px] text-foreground/60">{project.stats[0]?.label}</p>
           </div>
-        ))}
+        )}
       </div>
-      <p className="mt-4 text-xs text-muted">
-        {project.company} · {project.period}
-      </p>
     </Link>
   );
 }

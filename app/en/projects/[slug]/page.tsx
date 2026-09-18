@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import ProjectView from "@/components/views/ProjectView";
 import { getContent } from "@/lib/content";
 
-const { profile, caseStudies } = getContent("ko");
+const { profile, caseStudies } = getContent("en");
 
 export function generateStaticParams() {
   return caseStudies.map((project) => ({ slug: project.slug }));
@@ -26,5 +26,5 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   if (!caseStudies.some((p) => p.slug === slug)) notFound();
-  return <ProjectView locale="ko" slug={slug} />;
+  return <ProjectView locale="en" slug={slug} />;
 }

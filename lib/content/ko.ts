@@ -1,9 +1,13 @@
-export const profile = {
+import type { ApproachStep, CaseStudy, ExperienceStint, Profile, Skills } from "@/lib/types";
+
+export const profile: Profile = {
   nameKo: "한현식",
   nameEn: "Hyun Sik Han",
+  brandName: "Tony Han",
   title: "Global Project Manager · UX Manager",
   tagline:
     "글로벌 플랫폼과 신규 서비스를 0에서 1로, 그리고 1에서 N으로 확장시키는 PM입니다.",
+  bio: "글로벌 플랫폼과 신규 서비스 론칭을 6년 넘게 담당해온 PM입니다. 게임부터 글로벌 제조사 커머스 플랫폼까지, 여러 국가·이해관계자가 얽힌 복잡한 프로젝트를 표준화된 프로세스로 풀어내는 데 강점이 있습니다.",
   email: "hahysi2030@gmail.com",
   phone: "+82 10 4183 3803",
   linkedin: "https://www.linkedin.com/in/hahysi2030",
@@ -22,7 +26,7 @@ export const profile = {
   },
 };
 
-export const skills = {
+export const skills: Skills = {
   domains: [
     "Global Project Management",
     "UX Planning & Standardization",
@@ -42,25 +46,6 @@ export const skills = {
     "Perforce",
   ],
 };
-
-export interface Engagement {
-  title: string;
-  period: string;
-  role: string;
-  tasks: string[];
-  outcome?: string;
-  collaboration?: string;
-  tools?: string[];
-  link?: { label: string; href: string };
-}
-
-export interface ExperienceStint {
-  company: string;
-  companyNote?: string;
-  team: string;
-  period: string;
-  engagements: Engagement[];
-}
 
 export const experience: ExperienceStint[] = [
   {
@@ -305,29 +290,6 @@ export const experience: ExperienceStint[] = [
   },
 ];
 
-export interface CaseStudyImage {
-  src: string;
-  alt: string;
-  caption: string;
-}
-
-export interface CaseStudy {
-  slug: string;
-  title: string;
-  subtitle: string;
-  company: string;
-  period: string;
-  role: string;
-  tags: string[];
-  stats: { value: string; label: string }[];
-  challenge: string[];
-  approach: string[];
-  results: string[];
-  collaboration: string;
-  tools: string[];
-  images: CaseStudyImage[];
-}
-
 export const caseStudies: CaseStudy[] = [
   {
     slug: "lg-com-global-ux",
@@ -477,52 +439,222 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "samsung-global-rollout",
-    title: "Samsung.com 글로벌 플랫폼 확산 — 80개국, 6,000+ 페이지",
-    subtitle: "B2C·B2B·CX 세 갈래의 글로벌 확산을 3년에 걸쳐 운영하다",
-    company: "삼성전자 · PTKOREA (GXG)",
-    period: "2020.09 ~ 2022.09",
-    role: "PM · AE · 플랫폼 기획",
-    tags: ["Global Rollout at Scale", "AEM", "PMO"],
+    slug: "npixel-sound-pm",
+    title: "NPIXEL 사운드 팀 — 3개 프로젝트 동시 운영의 이슈 관리 체계화",
+    subtitle: "라이브 서비스와 신규 개발이 동시에 도는 사운드 팀에 프로세스를 심다",
+    company: "NPIXEL",
+    period: "2022.09 ~ 2023.01",
+    role: "Project Manager",
+    tags: ["Process Improvement", "Cross-team PM", "Game Ops"],
     stats: [
-      { value: "80여 개국", label: "B2C/B2B P6 글로벌 확산" },
-      { value: "6,000+", label: "Product Finder 페이지 제작" },
-      { value: "100%", label: "일정 내 라이브 런칭 완료율" },
+      { value: "3개", label: "동시 운영 프로젝트" },
+      { value: "1개", label: "신설 이슈 대시보드" },
     ],
     challenge: [
-      "삼성닷컴은 국가마다 사업부(IM/VD/DA)와 비즈니스 유형(B2C/B2B)이 달라, 글로벌 확산 프로젝트마다 요구사항의 결이 전부 달랐습니다.",
-      "2020년부터 2022년까지 저는 B2C P6, B2B P6, Online B2B, CX 개선까지 이어지는 일련의 글로벌 확산 프로젝트에서 PM과 AE 역할을 오가며 규모와 성격이 다른 확산을 연속으로 운영했습니다.",
+      "GranSaga 라이브 운영과 Chrono Odyssey·Metaverse/NFT 신규 개발이 동시에 진행되는 사운드 팀에 신규 PM으로 투입되었습니다.",
+      "프로젝트별로 사운드 이슈 관리 방식이 통일되어 있지 않아 머지 버전 관리와 리소스 누락 이슈가 반복되고 있었습니다.",
     ],
     approach: [
-      "B2C P6 확산에서는 80여 개국 사이트의 약 6,000여 개 Product Finder 페이지를, 제품 종류·분류·SKU 등 국가별 특이사항까지 고려해 제작 관리했습니다.",
-      "이어진 B2B P6 확산에서는 80여 개국의 IM/VD/DA 사업부 페이지 전체를, 사업부와 법인별로 상이한 정책을 PMO와 함께 AEM 환경 제작 정책으로 정리하며 진행했습니다.",
-      "Online B2B 확산에서는 25개국 약 70개 사이트의 학생·관계사 대상 랜딩 페이지(Why Samsung SMB, Common EPP)를 별도로 기획·제작 관리했습니다.",
-      "CX 개선 프로젝트에서는 AE로서 Buying Page, Cart, Checkout Page 프로토타입 개발을 관리하고, Buying Page의 FRD(Functional Requirements Document)를 직접 작성했습니다.",
-      "매 확산마다 글로벌 프로덕션 센터의 제작 일정을 관리하고 UAT/QA로 품질을 검수한 뒤, 라이브 전후 이슈 대응과 운영 이관까지 매듭지었습니다.",
+      "라이브 운영 중인 GranSaga의 사운드 작업·이슈를 관리하며 라이브 운영팀과의 협업 루틴을 만들었습니다.",
+      "신규 개발 중인 Chrono Odyssey, Metaverse/NFT 프로젝트는 사운드 개발 방향성 협의부터 이슈 관리까지 별도 트랙으로 운영했습니다.",
+      "해외 작곡가(Chris Velasco)와의 커뮤니케이션을 전담하며 계약 관리, 작곡 스케줄, 레퍼런스 문서 번역까지 하나의 창구로 정리했습니다.",
+      "프로젝트별 이슈 관리를 위한 대시보드를 구축해 사운드 이슈의 우선순위와 처리 상태를 한눈에 보이게 만들었습니다.",
     ],
     results: [
-      "B2C P6, B2B P6, Online B2B 세 확산 모두 프로젝트 일정 내 100% 라이브 런칭과 운영 이관을 완료했습니다.",
-      "CX 개선 프로젝트에서는 광고주 요구사항에 맞춘 개선 요건을 수립하고 구매 여정 프로토타입을 일정 내 납품했습니다.",
-      "서로 다른 이해관계자(삼성전자 D2C팀, 제일기획, EY PMO)를 오가며 3년간 대규모 글로벌 운영을 끊김 없이 지속했습니다.",
+      "라이브 운영·신규 개발 프로젝트 전반에서 반복되던 머지 버전 관리와 사운드 리소스 누락 이슈를 개선했습니다.",
+      "각 프로젝트 담당 PM 및 아트팀, 영상팀과의 이슈·프로세스 협업 체계를 안정화했습니다.",
     ],
-    collaboration: "삼성전자 D2C팀 / B2B 온라인비즈니스팀 / CX팀 / 제일기획 디지털플랫폼팀·옴니채널팀 / EY 삼성닷컴 PMO",
+    collaboration: "GranSaga 운영팀 / Chrono Odyssey 개발실 / Metaverse·NFT 개발실 / 영상팀 / 아트팀",
+    tools: ["Perforce", "Confluence", "Jira", "Figma"],
+    images: [
+      {
+        src: "/images/projects/npixel-sound-dashboard.png",
+        alt: "NPIXEL Sound Build Test Dashboard",
+        caption: "프로젝트별 사운드 빌드 테스트 및 이슈 트래킹 대시보드",
+      },
+    ],
+  },
+  {
+    slug: "online-b2b-global-rollout",
+    title: "Samsung.com Online B2B — 25개국 70개 사이트 EPP 확산",
+    subtitle: "학생과 관계사 직원을 위한 전용 랜딩 페이지를 25개국에 동시에 열다",
+    company: "삼성전자 · PTKOREA (GXG)",
+    period: "2022.05 ~ 2022.09",
+    role: "PM",
+    tags: ["Global Rollout", "B2B", "AEM"],
+    stats: [
+      { value: "25개국", label: "확산 대상 법인" },
+      { value: "~70개", label: "사이트" },
+      { value: "100%", label: "일정 내 라이브 런칭" },
+    ],
+    challenge: [
+      "삼성닷컴 내 학생과 관계사 직원 등 특정 유저 그룹을 위한 Why Samsung SMB, Common EPP 페이지를 B2B 비즈니스를 보유한 25개국에 동시에 열어야 했습니다.",
+      "국가마다 사이트 구조와 준비 상태가 달라, 약 70개 사이트 규모의 확산을 하나의 일정 안에서 관리해야 하는 문제가 있었습니다.",
+    ],
+    approach: [
+      "Why Samsung SMB(Small-Medium Business), Common EPP(Enhanced Partner Program) 두 페이지 유형의 콘텐츠 제작 관련 디자인과 정책 수립을 협업으로 정리했습니다.",
+      "글로벌 프로덕션 센터의 제작 일정과 단계별 확산 계획을 관리하고, UAT·QA로 각 사이트의 품질을 검증했습니다.",
+      "사이트별 라이브 런칭 전후 이슈를 추적하고, 완료된 사이트는 곧바로 운영팀에 이관했습니다.",
+    ],
+    results: [
+      "프로젝트 일정 내 25개국 약 70여 사이트에서 3가지 유형(Why Samsung SMB, Common EPP-Student/Corporate) 페이지의 라이브 런칭을 100% 완료했습니다.",
+      "모든 런칭 사이트의 운영 이관까지 마무리해 후속 운영 리스크를 남기지 않았습니다.",
+    ],
+    collaboration: "삼성전자 B2B 온라인비즈니스팀 / 제일기획 디지털플랫폼팀 / EY 삼성닷컴 운영 PMO",
     tools: ["Confluence", "Jira", "AEM (Adobe Experience Manager)"],
     images: [
       {
         src: "/images/projects/samsung-scope-of-site.png",
-        alt: "Samsung.com Online B2B Scope of Site",
-        caption: "25개국 확산 범위 관리 문서 — 법인·사업부별 Scope of Site 트래킹",
+        alt: "Online B2B Scope of Site",
+        caption: "25개국 확산 범위 관리 — 법인·사업부별 Store Setup / Registration / Landing Page 진행 현황",
       },
+      {
+        src: "/images/projects/online-b2b-epp-live.png",
+        alt: "Live EPP landing page",
+        caption: "라이브 오픈된 임직원 구매 프로그램(EPP) 랜딩 페이지",
+      },
+    ],
+  },
+  {
+    slug: "samsung-cx-frd",
+    title: "Samsung.com CX 개선 — 구매 여정 프로토타입과 FRD",
+    subtitle: "Buying → Cart → Checkout, 결제 여정을 다시 설계하고 문서로 남기다",
+    company: "삼성전자 · PTKOREA (GXG)",
+    period: "2021.12 ~ 2022.04",
+    role: "AE, 플랫폼 기획",
+    tags: ["CX", "Prototype", "FRD"],
+    stats: [
+      { value: "3개 페이지", label: "Buying · Cart · Checkout" },
+      { value: "1건", label: "FRD 문서 직접 작성" },
+    ],
+    challenge: [
+      "글로벌 삼성닷컴 CX 개선 프로젝트 중, 소비자 구매 여정(Buying → Cart → Checkout)의 UX를 개편하는 과제를 맡았습니다.",
+      "개선 방향을 프로토타입으로 검증하는 동시에, 개발사가 실제로 구현할 수 있도록 요구사항을 명세한 문서가 필요했습니다.",
+    ],
+    approach: [
+      "주문 및 결제 여정에 따라 Buying Page, Cart, Checkout Page의 프로토타입 개발을 관리했습니다.",
+      "프로토타입 대상 페이지 중 핵심인 Buying Page의 FRD(Functional Requirements Document)를 직접 작성하고 관리했습니다.",
+      "페이지 기획에 따른 개발사의 일정과 산출물을 관리하며 요구사항이 누락 없이 반영되는지 확인했습니다.",
+    ],
+    results: [
+      "광고주 요구사항에 맞춘 개선 요건을 수립하고, 구매 여정 프로토타입 개발을 일정 내 납품 완료했습니다.",
+    ],
+    collaboration: "삼성전자 CX팀 / 제일기획 옴니채널팀 / 한봄 스튜디오 개발사",
+    tools: ["Confluence"],
+    images: [
       {
         src: "/images/projects/samsung-checkout-prototype.png",
         alt: "Samsung.com Checkout Prototype",
-        caption: "CX 개선 과제 — Buying/Checkout Page 프로토타입",
+        caption: "Buying/Checkout Page 프로토타입 — 구매 여정 UX 개편",
       },
+    ],
+  },
+  {
+    slug: "samsung-b2b-p6-rollout",
+    title: "Samsung.com B2B P6 — 80개국 3대 사업부 페이지 확산",
+    subtitle: "IM·VD·DA 사업부의 서로 다른 정책을 하나의 AEM 제작 기준으로 묶다",
+    company: "삼성전자 · PTKOREA (GXG)",
+    period: "2021.03 ~ 2021.11",
+    role: "PM",
+    tags: ["Global Rollout at Scale", "AEM", "PMO"],
+    stats: [
+      { value: "80여 개국", label: "B2B 사이트 개편" },
+      { value: "3개 사업부", label: "IM · VD · DA" },
+      { value: "100%", label: "라이브 런칭 완료율" },
+    ],
+    challenge: [
+      "B2C 글로벌 확산에 이어, B2B 비즈니스를 보유한 법인 전체를 대상으로 하는 대규모 개편 프로젝트를 맡았습니다.",
+      "80여 개국 법인마다 IM/VD/DA 사업부별 콘텐츠와 기능 요구사항이 달라, 이를 일관된 제작 기준으로 정리하는 것이 핵심 과제였습니다.",
+    ],
+    approach: [
+      "80여 개국 글로벌 법인별 B2B 사이트의 콘텐츠·기능 요구사항을 수급하고 반영하기 위한 커뮤니케이션 채널을 운영했습니다.",
+      "사업부와 법인별로 상이한 정책 및 요구사항을 프로젝트 PMO와 협업하며 AEM 환경 내 제작 정책으로 정리했습니다.",
+      "글로벌 프로덕션 센터의 제작 일정과 단계별 확산에 따른 UAT·QA 검수를 관리하고, 라이브 런칭 이슈에 대응했습니다.",
+    ],
+    results: [
+      "프로젝트 일정 내 80여 개국 사이트의 주요 사업부(IM, VD, DA) 페이지를 100% 라이브 런칭 완료하고 운영 이관까지 마쳤습니다.",
+    ],
+    collaboration: "삼성전자 D2C팀 / 제일기획 디지털플랫폼팀 / EY 삼성닷컴 확산 PMO",
+    tools: ["Confluence", "Jira", "AEM (Adobe Experience Manager)"],
+    images: [
       {
         src: "/images/projects/samsung-live-site.png",
         alt: "Samsung.com Live Site",
-        caption: "글로벌 확산이 반영되어 라이브된 Samsung.com",
+        caption: "확산이 반영되어 라이브된 Samsung.com B2B 사업부 페이지",
       },
     ],
+  },
+  {
+    slug: "samsung-b2c-p6-rollout",
+    title: "Samsung.com B2C P6 — 80개국, Product Finder 6,000+ 페이지",
+    subtitle: "제품 종류·SKU가 국가마다 다른 6,000여 개 페이지를 하나의 틀로 관리하다",
+    company: "삼성전자 · PTKOREA (GXG)",
+    period: "2020.09 ~ 2020.11",
+    role: "PM",
+    tags: ["Global Rollout at Scale", "AEM", "Product Finder"],
+    stats: [
+      { value: "80여 개국", label: "B2C 사이트" },
+      { value: "6,000+", label: "Product Finder 페이지" },
+      { value: "100%", label: "라이브 런칭 완료율" },
+    ],
+    challenge: [
+      "삼성닷컴 플랫폼의 B2C 글로벌 개편에 따라, 80여 개국 법인을 대상으로 약 6,000여 개의 Product Finder(PF) 페이지를 제작해야 했습니다.",
+      "국가마다 판매 중인 제품 종류, 분류, SKU가 달라 페이지 하나하나가 사실상 국가별 예외 케이스를 갖고 있었습니다.",
+    ],
+    approach: [
+      "80여 개국 글로벌 법인별 PF 페이지의 제품 및 기능 요구사항을 수급하고 반영을 위한 커뮤니케이션을 담당했습니다.",
+      "제품 종류·분류·SKU·제품 정보상의 국가별 특이사항을 고려해 페이지 제작 반영 여부를 관리했습니다.",
+      "글로벌 프로덕션 센터 제작 일정 및 AEM 환경 페이지 제작을 관리하며 UAT·QA 검수와 라이브 이슈 대응을 병행했습니다.",
+    ],
+    results: [
+      "프로젝트 일정 내 80여 개국 사이트별 PF 페이지 요구사항을 반영하고 100% 라이브 런칭을 완료했습니다.",
+    ],
+    collaboration: "삼성전자 D2C팀 / 제일기획 디지털플랫폼팀 / EY 삼성닷컴 확산 PMO",
+    tools: ["Confluence", "Jira", "AEM"],
+    images: [
+      {
+        src: "/images/projects/samsung-pf-tracker.png",
+        alt: "P6 Global Rollout PF Mobile Tracker",
+        caption: "80여 개국 Product Finder 확산 진행 현황 트래커 (Confluence)",
+      },
+    ],
+  },
+];
+
+export const approach: ApproachStep[] = [
+  {
+    number: "01",
+    title: "탐색",
+    icon: "search",
+    category: "PEOPLE · INSIGHTS",
+    bullets: ["법인·시장별 요구사항 수집", "현행 운영 이슈 진단", "이해관계자 인터뷰"],
+  },
+  {
+    number: "02",
+    title: "합의",
+    icon: "team",
+    category: "STANDARDS",
+    bullets: ["글로벌 공통 UX 기준 정립", "정책·범위 합의", "가이드/디자인 시스템 수립"],
+  },
+  {
+    number: "03",
+    title: "구축",
+    icon: "build",
+    category: "EXECUTION",
+    bullets: ["콘텐츠·CMS 운영 모델 설계", "권한/역할 정의", "개발사·인프라 협업 관리"],
+  },
+  {
+    number: "04",
+    title: "런칭",
+    icon: "launch",
+    category: "RELEASE RISK",
+    bullets: ["오픈 준비도 점검", "QA/UAT 품질 보증", "라이브 이슈 대응"],
+  },
+  {
+    number: "05",
+    title: "개선",
+    icon: "chart",
+    category: "OUTCOMES",
+    bullets: ["성과 리뷰 및 피드백 수집", "운영 이관", "지속적 개선"],
   },
 ];

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HomeView from "@/components/views/HomeView";
 import { getContent } from "@/lib/content";
 
-const { profile } = getContent("ko");
+const { profile } = getContent("en");
 
 export const metadata: Metadata = {
   title: `${profile.brandName} — ${profile.title}`,
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <HomeView locale="ko" />;
+  return <HomeView locale="en" />;
 }

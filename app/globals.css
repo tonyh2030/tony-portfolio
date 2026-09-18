@@ -1,34 +1,46 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf9;
-  --surface: #ffffff;
-  --foreground: #1c1c1a;
-  --muted: #6b6a66;
-  --border: #e6e4df;
-  --accent: #b5501f;
-  --accent-soft: #f3e6dd;
+  --background: #f2f0e9;
+  --surface: #fbfaf6;
+  --foreground: #211f18;
+  --muted: #726b5d;
+  --border: #e1ddd0;
+  --primary: #2f4a3d;
+  --primary-foreground: #f2f0e9;
+  --sage: #90a693;
+  --sage-soft: #e6eae0;
+  --orange: #d9713f;
+  --orange-soft: #f6e2d3;
 }
 
 :root[data-theme="dark"] {
-  --background: #14130f;
-  --surface: #1c1b17;
-  --foreground: #f2f0ea;
-  --muted: #a5a297;
-  --border: #34322b;
-  --accent: #e08a4f;
-  --accent-soft: #3a291d;
+  --background: #17160f;
+  --surface: #201f17;
+  --foreground: #efece1;
+  --muted: #a39c8c;
+  --border: #343225;
+  --primary: #a9c9b4;
+  --primary-foreground: #17160f;
+  --sage: #7fa189;
+  --sage-soft: #253128;
+  --orange: #e2905c;
+  --orange-soft: #3a2a1e;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --background: #14130f;
-    --surface: #1c1b17;
-    --foreground: #f2f0ea;
-    --muted: #a5a297;
-    --border: #34322b;
-    --accent: #e08a4f;
-    --accent-soft: #3a291d;
+    --background: #17160f;
+    --surface: #201f17;
+    --foreground: #efece1;
+    --muted: #a39c8c;
+    --border: #343225;
+    --primary: #a9c9b4;
+    --primary-foreground: #17160f;
+    --sage: #7fa189;
+    --sage-soft: #253128;
+    --orange: #e2905c;
+    --orange-soft: #3a2a1e;
   }
 }
 
@@ -38,8 +50,12 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
   --font-sans: var(--font-sans);
 }
 
@@ -53,7 +69,11 @@ body {
   font-family: var(--font-sans), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
+.tracked {
+  letter-spacing: 0.08em;
+}
+
 ::selection {
-  background: var(--accent-soft);
-  color: var(--accent);
+  background: var(--orange-soft);
+  color: var(--orange);
 }
